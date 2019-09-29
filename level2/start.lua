@@ -115,25 +115,61 @@ function scene:create( event )
 
         elseif(dri==4) then
             bg="images/uutpakhi.png"
-            track="video/rossou.mp4"
+			bg1="images/bg5.png"
+            track="video/rossou.wmv"
+			mt="audio/rossou.mp3"
+			r=165
+			g=42
+			b=42
+
         elseif(dri==5) then
             bg="images/Urdhomukhi.png"
-            track="video/dirghou.mp4"
+            bg1="images/bg6.png"
+			track="video/dirghou.wmv"
+			mt="audio/dirghou.mp3"
+			r=255
+			g=0
+			b=0
         elseif(dri==6) then
             bg="images/ri.png"
-            track="video/ri.mp4"
+			bg1="images/bg7.png"
+            track="video/ri.wmv"
+			mt="audio/ri.mp3"
+			r=0
+			g=0
+			b=0
         elseif(dri==7) then
             bg="images/ekush.png"
-            track="video/e.mp4"
+			bg1="images/bg8.png"
+            track="video/e.wmv"
+			mt="audio/ae.mp3"
+			r=255
+			g=255
+			b=255
         elseif(dri==8) then
             bg="images/Oirabot.png"
-            track="video/oi.mp4"
+			bg1="images/bg9.png"
+            track="video/oi.wmv"
+			mt="audio/oi.mp3"
+			r=165
+			g=42
+			b=42
         elseif(dri==9) then
             bg="images/Ojon-baksho.png"
-            track="video/o.mp4"
+			bg1="images/bg10.png"
+            track="video/o.wmv"
+			mt="audio/o.mp3"
+			r=165
+			g=42
+			b=42
         elseif(dri==10) then
             bg="images/Oushodh.png"
-            track="video/ou.mp4"
+			bg1="images/bg11.png"
+            track="video/ou.wmv"
+			mt="audio/ou.mp3"
+			r=255
+			g=255
+			b=153
             
         
         end    
