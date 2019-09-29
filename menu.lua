@@ -291,6 +291,16 @@ function scene:create( event )
 
 
 	roundedRect2:addEventListener( "tap", gotoLevel2 )
+	
+	
+	
+	local button  = display.newText( sceneGroup, "বিস্তারিত জানতে এখানে ক্লিক করুন", display.contentCenterX, 800, native.systemFont, 30 )
+	function button:tap()
+		system.openURL( "https://rubaiathabib.me/2015/12/12/bangla-bornomala/" ) -- open URL in browser
+	end
+
+	button:addEventListener('tap', button)
+
     
 
 --    local roundedRect3 = display.newRoundedRect( display.contentCenterX, 400, 350, 60, 12 )
