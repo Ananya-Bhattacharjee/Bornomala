@@ -343,6 +343,20 @@ function scene:create( event )
 
 
     end
+	
+	local function pronunciation()
+        --local musicTrack
+        --draw()
+        --musicTrack = audio.loadStream( track )
+        --audio.play( musicTrack, { channel=1, loops=0 } )
+		mtt=audio.loadStream(mt)
+		audio.play(mtt,{channel=2, loops=0})
+		
+
+
+
+    end
+    
 
     
     local function gotoMenu()
@@ -395,6 +409,14 @@ function scene:create( event )
 			reButton.y=display.contentCenterY-150
 
 			reButton:addEventListener( "tap", redraw )
+
+			local proButton = display.newImageRect( sceneGroup, "images/sound.png", 50, 50 )
+			proButton.x=display.contentCenterX+150
+			proButton.y=display.contentCenterY-450
+			--proButton:setFillColor( 0, 0.6, 1 )
+			proButton:addEventListener( "tap", pronunciation )
+    
+
 		
 
     end
