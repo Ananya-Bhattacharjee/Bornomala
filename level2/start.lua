@@ -271,7 +271,6 @@ function scene:create( event )
         return true
     end
 
-    Runtime:addEventListener("touch", paint)
 
 	
 	
@@ -415,6 +414,12 @@ function scene:create( event )
 			proButton.y=display.contentCenterY-450
 			--proButton:setFillColor( 0, 0.6, 1 )
 			proButton:addEventListener( "tap", pronunciation )
+			
+			local menuButton = display.newText( sceneGroup, "মেনু", display.contentCenterX, 50, native.systemFont, 44 )
+			menuButton:setFillColor( 0, 0, 0 )
+			menuButton:addEventListener( "tap", gotoMenu )
+
+			Runtime:addEventListener("touch", paint)
     
 
 		
@@ -438,9 +443,6 @@ function scene:create( event )
     
 
     
-    local menuButton = display.newText( sceneGroup, "মেনু", display.contentCenterX, 50, native.systemFont, 44 )
-	menuButton:setFillColor( 0, 0, 0 )
-	menuButton:addEventListener( "tap", gotoMenu )
 
     --local menuButton = display.newText( sceneGroup, "কুইজ", display.contentCenterX+200, 50, native.systemFont, 44 )
 	--menuButton:setFillColor( 0, 0, 0 )
