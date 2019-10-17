@@ -80,7 +80,7 @@ function scene:create( event )
 
         if(dri==0) then
             bg="images/Ojogor.png"
-            track="video/soreo.wmv"
+            track="video/soreo.mp4"
 			bg1="images/bg1.png"
 			mt="audio/soreo.mp3"
 			r=255
@@ -89,7 +89,7 @@ function scene:create( event )
         elseif(dri==1) then
             bg="images/aagun.png"
             bg1="images/bg2.png"
-			track="video/sorea.wmv"
+			track="video/sorea.mp4"
 			mt="audio/sorea.mp3"
 			r=255
 			g=165
@@ -97,7 +97,7 @@ function scene:create( event )
         elseif(dri==2) then
             bg="images/Eee-te-endur.png"
 			bg1="images/bg3.png"
-            track="video/rossoi.wmv"
+            track="video/rossoi.mp4"
 			mt="audio/rossoi.mp3"
 			r=165
 			g=42
@@ -106,7 +106,7 @@ function scene:create( event )
         elseif(dri==3) then
             bg="images/Eagle.png"
 			bg1="images/bg4.png"
-            track="video/dirghoi.wmv"
+            track="video/dirghoi.mp4"
 			mt="audio/dirghoi.mp3"
 			r=165
 			g=42
@@ -116,7 +116,7 @@ function scene:create( event )
         elseif(dri==4) then
             bg="images/uutpakhi.png"
 			bg1="images/bg5.png"
-            track="video/rossou.wmv"
+            track="video/rossou.mp4"
 			mt="audio/rossou.mp3"
 			r=165
 			g=42
@@ -125,7 +125,7 @@ function scene:create( event )
         elseif(dri==5) then
             bg="images/Urdhomukhi.png"
             bg1="images/bg6.png"
-			track="video/dirghou.wmv"
+			track="video/dirghou.mp4"
 			mt="audio/dirghou.mp3"
 			r=255
 			g=0
@@ -133,7 +133,7 @@ function scene:create( event )
         elseif(dri==6) then
             bg="images/ri.png"
 			bg1="images/bg7.png"
-            track="video/ri.wmv"
+            track="video/ri.mp4"
 			mt="audio/ri.mp3"
 			r=0
 			g=0
@@ -141,7 +141,7 @@ function scene:create( event )
         elseif(dri==7) then
             bg="images/ekush.png"
 			bg1="images/bg8.png"
-            track="video/e.wmv"
+            track="video/e.mp4"
 			mt="audio/ae.mp3"
 			r=255
 			g=255
@@ -149,7 +149,7 @@ function scene:create( event )
         elseif(dri==8) then
             bg="images/Oirabot.png"
 			bg1="images/bg9.png"
-            track="video/oi.wmv"
+            track="video/oi.mp4"
 			mt="audio/oi.mp3"
 			r=165
 			g=42
@@ -157,7 +157,7 @@ function scene:create( event )
         elseif(dri==9) then
             bg="images/Ojon-baksho.png"
 			bg1="images/bg10.png"
-            track="video/o.wmv"
+            track="video/o.mp4"
 			mt="audio/o.mp3"
 			r=165
 			g=42
@@ -165,7 +165,7 @@ function scene:create( event )
         elseif(dri==10) then
             bg="images/Oushodh.png"
 			bg1="images/bg11.png"
-            track="video/ou.wmv"
+            track="video/ou.mp4"
 			mt="audio/ou.mp3"
 			r=255
 			g=255
@@ -247,17 +247,23 @@ function scene:create( event )
             else
                 --Line has not been created
                 --Make new line object, set color, and stroke width
-                line = display.newLine(initX, initY, locationX, locationY)
-                if(flag==0) then
-                    line:setStrokeColor( r/255, g/255, b/255 )
-                else
-                    line:setStrokeColor( 1, 1, 1 )
-                end
-                line.strokeWidth = 40
-                table.insert(lines,line)
+                if initX==nil or initY==nil or locationX==nil or locationY==nil then
+				
+				else
+				
+				
+					line = display.newLine(initX, initY, locationX, locationY)
+					if(flag==0) then
+						line:setStrokeColor( r/255, g/255, b/255 )
+					else
+						line:setStrokeColor( 1, 1, 1 )
+					end
+					line.strokeWidth = 40
+					table.insert(lines,line)
 
-                --set line created flag to true
-                lineCreated = true
+					--set line created flag to true
+					lineCreated = true
+				end
             end     
         elseif event.phase == "ended" or event.phase == "cancelled" then --touch lifted
             --append last touch location to the line
@@ -425,7 +431,7 @@ function scene:create( event )
 		
 
     end
-    timer.performWithDelay( 30000, timeywimey )
+    timer.performWithDelay( 15000, timeywimey )
     
 	background = display.newImageRect( sceneGroup, bg1, 600, 1200 )
 	background.x = display.contentCenterX

@@ -296,7 +296,7 @@ function scene:create( event )
 	
 	local button  = display.newText( sceneGroup, "বিস্তারিত জানতে এখানে ক্লিক করুন", display.contentCenterX, 800, native.systemFont, 30 )
 	function button:tap()
-		system.openURL( "https://rubaiathabib.me/2015/12/12/bangla-bornomala/" ) -- open URL in browser
+		system.openURL( "https://sites.google.com/view/bornomalaproject/home" ) -- open URL in browser
 	end
 
 	button:addEventListener('tap', button)
