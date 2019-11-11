@@ -20,6 +20,10 @@ end
 
 local function gotoMenu()
     composer.removeScene("level2.balloon4")
+	composer.removeScene("level2.matchingCopy")
+	composer.removeScene("level2.smcCopy")
+	composer.removeScene("level2.seematchingCopy")
+
     dri=4
     scoring=0
 
@@ -65,7 +69,7 @@ function scene:create( event )
     timer.performWithDelay( 3000, timeywimey )
 
     local bg="images/balloon.jpg"
-	local background = display.newImageRect( sceneGroup, "images/balloon.jpg", 800, 1400 )
+	local background = display.newImageRect( sceneGroup, "images/balloon.jpg", 600, 800 )
 	background.x = display.contentCenterX
 	background.y = display.contentCenterY
     
@@ -75,9 +79,12 @@ function scene:create( event )
         else 
             bg="images/sad.jpg"
         end
-        background = display.newImageRect( sceneGroup, bg, 600, 1200 )
-	   background.x = display.contentCenterX
-	   background.y = display.contentCenterY
+		gotoMenu()
+		
+		
+--        background = display.newImageRect( sceneGroup, bg, 600, 1200 )
+--	   background.x = display.contentCenterX
+--	   background.y = display.contentCenterY
         local menuButton = display.newText( sceneGroup, "মেনু", display.contentCenterX, 50, native.systemFont, 44 )
 	   menuButton:setFillColor( 0, 0, 0 )
 	   menuButton:addEventListener( "tap", gotoMenu )

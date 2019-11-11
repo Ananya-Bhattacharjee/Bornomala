@@ -8,6 +8,10 @@ local track
 
 
 local function gotoMenu()
+	composer.removeScene("level2.matchingCopy")
+	composer.removeScene("level2.smcCopy")
+	composer.removeScene("level2.seematchingCopy")
+
 	composer.gotoScene( "menu", { time=800, effect="crossFade" } )
 end
 
@@ -351,7 +355,7 @@ function scene:create( event )
         local musicTrack
         
         musicTrack = audio.loadStream( track )
-        audio.play( musicTrack, { channel=1, loops=0 } )
+        audio.play( musicTrack, { channel=4, loops=0 } )
 
     end
 
@@ -434,7 +438,7 @@ function scene:create( event )
             local correctTrack
         
             correctTrack = audio.loadStream( "audio/balloon.mp3" )
-            audio.play( correctTrack, { channel=1, loops=0 } )
+            audio.play( correctTrack, { channel=3, loops=0 } )
             sleep(2)
             next()
         
@@ -453,7 +457,7 @@ function scene:create( event )
             local wrongTrack
         
             wrongTrack = audio.loadStream( "audio/Wrong.mp3" )
-            audio.play( wrongTrack, { channel=1, loops=0 } )
+            audio.play( wrongTrack, { channel=3, loops=0 } )
 
         
     end
@@ -467,7 +471,7 @@ function scene:create( event )
             local wrongTrack
         
             wrongTrack = audio.loadStream( "audio/Wrong.mp3" )
-            audio.play( wrongTrack, { channel=1, loops=0 } )
+            audio.play( wrongTrack, { channel=3, loops=0 } )
         
     end
     local function mistake3()
@@ -480,7 +484,7 @@ function scene:create( event )
             local wrongTrack
         
             wrongTrack = audio.loadStream( "audio/Wrong.mp3" )
-            audio.play( wrongTrack, { channel=1, loops=0 } )
+            audio.play( wrongTrack, { channel=3, loops=0 } )
         
     end
     local function mistake4()
@@ -493,7 +497,7 @@ function scene:create( event )
             local wrongTrack
         
             wrongTrack = audio.loadStream( "audio/Wrong.mp3" )
-            audio.play( wrongTrack, { channel=1, loops=0 } )
+            audio.play( wrongTrack, { channel=3, loops=0 } )
         
     end
     
@@ -565,7 +569,7 @@ function scene:create( event )
     local musicTrack2
         
     musicTrack2 = audio.loadStream( track )
-    audio.play( musicTrack2, { channel=1, loops=0 } )
+    audio.play( musicTrack2, { channel=4, loops=0 } )
 
     
     

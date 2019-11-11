@@ -36,14 +36,6 @@ local function gotoSeeMatching()
 	composer.gotoScene( "smc", { time=800, effect="crossFade" } )
 end
 
-local function gotoQuiz()
-    composer.removeScene("level2.matchingCopy")
-    composer.removeScene("level2.smcCopy")
-    composer.removeScene("level2.seematchingCopy")
-
-
-	composer.gotoScene( "level2.matchingCopy", { time=800, effect="crossFade" } )
-end
 
 local function gotoDraw()
 	composer.gotoScene( "draw", { time=800, effect="crossFade" } )
@@ -385,7 +377,7 @@ function scene:create( event )
         return true
 	end
 
-    local video = native.newVideo( display.contentCenterX, display.contentCenterY, 600, 600 )
+    local video = native.newVideo( display.contentCenterX, display.contentCenterY, 530, 530 )
 
 	video:load(track)
 
@@ -410,18 +402,13 @@ function scene:create( event )
 			--print(11)
 			
 		    local reButton = display.newImageRect( sceneGroup, "images/redraw.png", 50, 50 )
-			reButton.x=display.contentCenterX-250
+			reButton.x=display.contentCenterX-220
 			reButton.y=display.contentCenterY-150
 
 			reButton:addEventListener( "tap", redraw )
 
-			local proButton = display.newImageRect( sceneGroup, "images/sound.png", 50, 50 )
-			proButton.x=display.contentCenterX+150
-			proButton.y=display.contentCenterY-450
-			--proButton:setFillColor( 0, 0.6, 1 )
-			proButton:addEventListener( "tap", pronunciation )
 			
-			local menuButton = display.newText( sceneGroup, "মেনু", display.contentCenterX, 50, native.systemFont, 44 )
+			local menuButton = display.newText( sceneGroup, "মেনু", display.contentCenterX, 60, native.systemFont, 44 )
 			menuButton:setFillColor( 0, 0, 0 )
 			menuButton:addEventListener( "tap", gotoMenu )
 
@@ -438,7 +425,7 @@ function scene:create( event )
 	background.y = display.contentCenterY
     
     
-	background = display.newImageRect( sceneGroup, bg, 600, 600 )
+	background = display.newImageRect( sceneGroup, bg, 530, 530 )
 	background.x = display.contentCenterX
 	background.y = display.contentCenterY
 
@@ -446,13 +433,38 @@ function scene:create( event )
 
     
 
+	local proButton = display.newImageRect( sceneGroup, "images/sound.png", 50, 50 )
+	proButton.x=display.contentCenterX+150
+	proButton.y=display.contentCenterY-450
+	--proButton:setFillColor( 0, 0.6, 1 )
+	proButton:addEventListener( "tap", pronunciation )
     
+	local function gotoQuiz()
+
+        for k=1, #lines do
+            lines[k]:removeSelf()
+            lines[k].isVisible = false
+            lines[k] = nil
+            print(#lines)
+            print("removed")
+        end        
+        Runtime:removeEventListener("touch", paint)
+        sceneGroup:removeSelf()
+        sceneGroup=nil
+
+		composer.removeScene("level2.matchingCopy")
+		composer.removeScene("level2.smcCopy")
+		composer.removeScene("level2.seematchingCopy")
+
+
+		composer.gotoScene( "level2.matchingCopy", { time=800, effect="crossFade" } )
+	end
 
     
 
-    --local menuButton = display.newText( sceneGroup, "কুইজ", display.contentCenterX+200, 50, native.systemFont, 44 )
-	--menuButton:setFillColor( 0, 0, 0 )
-	--menuButton:addEventListener( "tap", gotoQuiz )
+    --local quizButton = display.newText( sceneGroup, "কুইজ", display.contentCenterX-150, 60, native.systemFont, 44 )
+	--quizButton:setFillColor( 0, 0, 0 )
+	--quizButton:addEventListener( "tap", gotoQuiz )
 
     
 

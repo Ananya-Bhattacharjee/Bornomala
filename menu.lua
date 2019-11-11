@@ -2,7 +2,7 @@
 local composer = require( "composer" )
 
 local scene = composer.newScene()
-
+scoring=0
 local x1
 local x2
 local x3
@@ -27,8 +27,8 @@ local function gotoLevel2()
     --x2:removeSelf()
     x3:removeSelf()
     x4:removeSelf()
-    --x5:removeSelf()
-    --x6:removeSelf()
+    x5:removeSelf()
+    x6:removeSelf()
     --x7:removeSelf()
     --x8:removeSelf()
     --x9:removeSelf()
@@ -49,8 +49,8 @@ local function gotoTrain()
     --x2:removeSelf()
     x3:removeSelf()
     x4:removeSelf()
-    --x5:removeSelf()
-    --x6:removeSelf()
+    x5:removeSelf()
+    x6:removeSelf()
     --x7:removeSelf()
     --x8:removeSelf()
     --x9:removeSelf()
@@ -266,7 +266,7 @@ function scene:create( event )
 
 --	roundedRect:addEventListener( "tap", gotoStart )
     
-    local roundedRect2 = display.newRoundedRect( display.contentCenterX, 450, 450, 200, 12 )
+    local roundedRect2 = display.newRoundedRect( display.contentCenterX, 350, 450, 200, 12 )
     roundedRect2.strokeWidth = 3
     roundedRect2:setFillColor(250/255, 165/255, 0/255)
     roundedRect2:setStrokeColor( 0.5, 0.2, 0.8 )
@@ -291,6 +291,41 @@ function scene:create( event )
 
 
 	roundedRect2:addEventListener( "tap", gotoLevel2 )
+	local function gotoQuiz()
+
+		composer.removeScene("level2.matchingCopy")
+		composer.removeScene("level2.smcCopy")
+		composer.removeScene("level2.seematchingCopy")
+		composer.removeScene("menu")
+		composer.removeScene("level2.balloon3")
+		composer.removeScene("level2.balloon4")
+
+		x3:removeSelf()
+		x4:removeSelf()
+		x5:removeSelf()
+		x6:removeSelf()
+
+
+		composer.gotoScene( "level2.matchingCopy", { time=800, effect="crossFade" } )
+	end
+	
+	    
+    local roundedRect3 = display.newRoundedRect( display.contentCenterX, 550, 450, 200, 12 )
+    roundedRect3.strokeWidth = 3
+    roundedRect3:setFillColor(250/255, 165/255, 0/255)
+    roundedRect3:setStrokeColor( 0.5, 0.2, 0.8 )
+    --roundedRect:removeSelf()
+    x5=roundedRect3
+    local text3 = display.newText( "দেখি সব পারি কি না", roundedRect3.x, roundedRect3.y, "gameFont", 20  )
+
+    local sx3 = roundedRect3.contentWidth/text3.contentWidth
+    local sy3 = roundedRect3.contentHeight/text3.contentHeight
+    local scale3 = (sx3 < sy3) and sx3 or sy3
+
+    text3:scale( scale3, scale3 )
+    x6=text3
+
+	roundedRect3:addEventListener( "tap", gotoQuiz )
 	
 	
 	

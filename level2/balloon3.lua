@@ -53,10 +53,11 @@ function scene:create( event )
             video:pause()
             video:removeSelf()
             video = nil
+			gotoMatching()
     end
     timer.performWithDelay( 3000, timeywimey )
 
-	local background = display.newImageRect( sceneGroup, "images/balloon.jpg", 800, 1400 )
+	local background = display.newImageRect( sceneGroup, "images/bg1.png", 800, 1400 )
 	background.x = display.contentCenterX
 	background.y = display.contentCenterY
 
